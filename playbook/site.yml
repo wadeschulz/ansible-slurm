@@ -1,0 +1,12 @@
+# NOTES:
+#  - add a munge key to the role files directory (/usr/sbin/create-munge-key)
+#  - add appropriate hosts to the hosts file if mapping is needed
+#  - add slurm.conf to files directory after generating (https://slurm.schedmd.com/configurator.html)
+#     - set paths for spool / pid to /var/slurm... so that permissions are applied correctly
+#  - can test with srun -N2 /bin/hostname to make sure config works after deployment
+
+- hosts: all
+  user: deploy
+  become: yes
+  roles:
+   - deploy_slurm
